@@ -7,31 +7,79 @@
   <title>Adejare Akolawole</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <div class="background-overlay"></div>
-  <header>
-    <nav class="navbar">
-      <div class="nav-brand">Adejare! ⚡</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#technical-proficiency">Tech Proficiency</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
-      <div class="hamburger">☰</div>
-    </nav>
-  </header>
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Vertical Icon Menu -->
+  <nav class="vertical-menu">
+    <div class="nav-brand">AA</div>
+    <ul class="nav-links">
+      <li class="nav-item">
+        <a href="#home">
+          <i class="fas fa-home"></i>
+          <span class="nav-label">Home</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#about">
+          <i class="fas fa-user"></i>
+          <span class="nav-label">About</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#skills">
+          <i class="fas fa-tools"></i>
+          <span class="nav-label">Skills</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#experience">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-label">Experience</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#projects">
+          <i class="fas fa-project-diagram"></i>
+          <span class="nav-label">Projects</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#technical-proficiency">
+          <i class="fas fa-code"></i>
+          <span class="nav-label">Tech Proficiency</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact">
+          <i class="fas fa-envelope"></i>
+          <span class="nav-label">Contact</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#blog">
+          <i class="fas fa-blog"></i>
+          <span class="nav-label">Blog</span>
+        </a>
+      </li>
+      <li class="nav-item theme-toggle-item">
+        <div class="theme-toggle">
+          <i class="fas fa-moon" id="theme-icon"></i>
+          <span class="nav-label">Theme</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
 
   <section id="home" class="hero">
     <div class="hero-content fade-in">
       <div class="profile-container">
-        <img src="port1.jpg" alt="Adejare Akolawole" class="profile-pic">
+        <img src="ade.jpg" alt="Adejare Akolawole" class="profile-pic" loading="lazy">
         <div class="circle-border"></div>
         <span class="orb orb-1"></span>
         <span class="orb orb-2"></span>
@@ -74,18 +122,13 @@
     <h2>Experience</h2>
     <div class="experience-timeline">
       <div class="experience-item">
-        <h3>Website Developer - ICC</h3>
-        <p>2024 - Present</p>
+        <h3>Resource Personnel - Airobot</h3>
+        <p>2022 - Present</p>
         <p>Driving innovation in robotics and system integration.</p>
       </div>
       <div class="experience-item">
-        <h3>Website Developer - Hall Connect Coop</h3>
-        <p>2024 - Present</p>
-        <p>Driving Innovations in Website Developement and Design.</p>
-      </div>
-      <div class="experience-item">
         <h3>Tech Content Creator</h3>
-        <p>2023 - Present</p>
+        <p>2020 - Present</p>
         <p>Shaping the tech community through content and talks.</p>
       </div>
     </div>
@@ -94,23 +137,35 @@
   <section id="projects" class="section fade-in">
     <h2>Projects</h2>
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="app">App</button>
+      <button class="filter-btn active" data-filter="all" aria-label="Show all projects">All</button>
+      <button class="filter-btn" data-filter="web" aria-label="Show web projects">Web</button>
+      <button class="filter-btn" data-filter="app" aria-label="Show app projects">App</button>
     </div>
     <div class="project-grid">
-      <div class="project-card web" data-link="https://ilorinbizchronicle.com">
-        <img src="il pic.jpg" alt="Project 1">
+      <div class="project-card web" data-title="News Site" data-description="A dynamic business news website built with modern web technologies." data-tech="HTML, CSS, JavaScript, React" data-link="https://example.com/news-site" data-image="il pic.jpg">
+        <img src="il pic.jpg" alt="News Site Project" loading="lazy">
         <h3>News Site</h3>
         <p>A dynamic business news website</p>
       </div>
-      <div class="project-card app" data-link="http://hallconnectscoop.com">
-        <img src="halllagos pic.jpg" alt="Project 2">
+      <div class="project-card app" data-title="Financial Website" data-description="A fully functional business website for financial services." data-tech="HTML, CSS, JavaScript, Node.js" data-link="https://example.com/financial-website" data-image="halllagos pic.jpg">
+        <img src="halllagos pic.jpg" alt="Financial Website Project" loading="lazy">
         <h3>Financial Website</h3>
         <p>A fully functional business website</p>
       </div>
     </div>
   </section>
+
+  <!-- Project Modal -->
+  <div class="project-modal" id="project-modal">
+    <div class="modal-content">
+      <span class="modal-close">×</span>
+      <img src="" alt="Project Image" class="modal-image" id="modal-image" loading="lazy">
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+      <p><strong>Technologies:</strong> <span id="modal-tech"></span></p>
+      <a href="#" id="modal-link" target="_blank" class="cta-btn">Visit Live Site</a>
+    </div>
+  </div>
 
   <section id="technical-proficiency" class="section fade-in">
     <h2>Technical Proficiency</h2>
@@ -144,28 +199,37 @@
     <h2>Contact Me</h2>
     <p>Ready to collaborate? Hit me up.</p>
     <form id="contact-form" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="cta-btn">Send Message</button>
+      <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+      <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+      <textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
+      <button type="submit" class="cta-btn">
+        <span class="button-text">Send Message</span>
+        <span class="spinner" style="display: none;">
+          <i class="fas fa-spinner fa-spin"></i>
+        </span>
+      </button>
     </form>
-
+    <p>Email: <a href="mailto:adejare.akolawole@gmail.com">adejare.akolawole@gmail.com</a></p>
+    <a href="assets/resume.pdf" download class="cta-btn resume-btn">Download Resume</a>
   </section>
 
   <section id="blog" class="section fade-in">
     <h2>Blog</h2>
-    <div class="blog-grid">
-      <div class="blog-card">
-        <h3>Intro to Web Development</h3>
-        <p>Posted on March 1, 2025 - Learn the basics of building websites.</p>
-      </div>
-    </div>
+    <div class="blog-grid" id="blog-grid"></div>
   </section>
 
   <footer>
     <p>© 2025 Adejare Akolawole. Built by Me.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- EmailJS SDK -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
