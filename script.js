@@ -1,8 +1,3 @@
-// Initialize EmailJS with your User ID
-(function() {
-  emailjs.init("user_jklmno"); // Replace with your actual EmailJS User ID
-})();
-
 // Three.js Particle System
 const canvas = document.getElementById('three-canvas');
 const scene = new THREE.Scene();
@@ -207,51 +202,13 @@ projectModal.addEventListener('click', (e) => {
   }
 });
 
-// Contact form submission with EmailJS
-const contactForm = document.getElementById('contact-form');
-const submitButton = contactForm.querySelector('button');
-const buttonText = submitButton.querySelector('.button-text');
-const spinner = submitButton.querySelector('.spinner');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  // Show spinner and disable button
-  buttonText.textContent = 'Sending...';
-  spinner.style.display = 'inline-block';
-  submitButton.disabled = true;
-
-  // Get form data
-  const formData = {
-    name: contactForm.name.value,
-    email: contactForm.email.value,
-    message: contactForm.message.value
-  };
-
-  // Send email using EmailJS
-  emailjs.send('service_pqr456', 'template_stu789', formData) // Replace with your actual Service ID and Template ID
-    .then(() => {
-      alert('Thank you for your message! I’ll get back to you soon.');
-      contactForm.reset();
-    }, (error) => {
-      alert('Failed to send message. Please try again later.');
-      console.error('EmailJS error:', error);
-    })
-    .finally(() => {
-      // Hide spinner and re-enable button
-      buttonText.textContent = 'Send Message';
-      spinner.style.display = 'none';
-      submitButton.disabled = false;
-    });
-});
-
 // Blog posts data (simulating a CMS)
 const blogPosts = [
   {
     title: "Intro to Web Development",
     date: "March 1, 2025",
     description: "Learn the basics of building websites.",
-    link: "https://example.com/intro-to-web-development" // Replace with actual blog link
+    link: "https://example.com/intro-to-web-development"
   },
   {
     title: "Mastering React in 2025",
@@ -275,17 +232,21 @@ const blogPosts = [
 
 // Render blog posts dynamically with "Read More" links
 const blogGrid = document.getElementById('blog-grid');
-
-blogPosts.forEach(post => {
-  const blogCard = document.createElement('div');
-  blogCard.classList.add('blog-card');
-  blogCard.innerHTML = `
-    <h3>${post.title}</h3>
-    <p>Posted on ${post.date} - ${post.description}</p>
-    <a href="${post.link}" target="_blank" class="read-more">Read More</a>
-  `;
-  blogGrid.appendChild(blogCard);
-});
+if (blogGrid) {
+  console.log("Blog grid found, rendering blog posts...");
+  blogPosts.forEach(post => {
+    const blogCard = document.createElement('div');
+    blogCard.classList.add('blog-card');
+    blogCard.innerHTML = `
+      <h3>${post.title}</h3>
+      <p>Posted on ${post.date} - ${post.description}</p>
+      <a href="${post.link}" target="_blank" class="read-more">Read More</a>
+    `;
+    blogGrid.appendChild(blogCard);
+  });
+} else {
+  console.error("Blog grid element not found!");
+}
 
 // Back to Top button functionality
 const backToTopButton = document.getElementById('back-to-top');
@@ -301,3 +262,6 @@ window.addEventListener('scroll', () => {
 backToTopButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Debug log to confirm script is running
+console.log("Script loaded successfully!");
