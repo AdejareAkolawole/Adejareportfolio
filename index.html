@@ -3,214 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Adejare Akolawole, Full-Stack Developer and Code Architect">
-  <title>Adejare Akolawole</title>
+  <meta name="description" content="Portfolio of Adejare Akolawole, a skilled web developer and financial markets professional.">
+  <meta name="keywords" content="web developer, financial markets, portfolio, HTML, CSS, JavaScript">
+  <meta name="author" content="Adejare Akolawole">
+  <title>Adejare Akolawole - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-  <div class="background-overlay"></div>
-  <canvas id="three-canvas"></canvas>
-
-  <!-- Vertical Icon Menu -->
-  <nav class="vertical-menu">
-    <div class="nav-brand">AA</div>
-    <ul class="nav-links">
-      <li class="nav-item">
-        <a href="#home">
-          <i class="fas fa-home"></i>
-          <span class="nav-label">Home</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#about">
-          <i class="fas fa-user"></i>
-          <span class="nav-label">About</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#skills">
-          <i class="fas fa-tools"></i>
-          <span class="nav-label">Skills</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#experience">
-          <i class="fas fa-briefcase"></i>
-          <span class="nav-label">Experience</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#projects">
-          <i class="fas fa-project-diagram"></i>
-          <span class="nav-label">Projects</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#technical-proficiency">
-          <i class="fas fa-code"></i>
-          <span class="nav-label">Tech Proficiency</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#contact">
-          <i class="fas fa-envelope"></i>
-          <span class="nav-label">Contact</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#blog">
-          <i class="fas fa-blog"></i>
-          <span class="nav-label">Blog</span>
-        </a>
-      </li>
-      <li class="nav-item theme-toggle-item">
-        <div class="theme-toggle">
-          <i class="fas fa-moon" id="theme-icon"></i>
-          <span class="nav-label">Theme</span>
-        </div>
-      </li>
-    </ul>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left">
+      <a href="#home"><i class="fas fa-house"></i></a>
+      <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#contact"><i class="fas fa-file"></i></a>
+    </div>
+    <div class="nav-right">
+      <a href="#">My Blog</a>
+    </div>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-content fade-in">
-      <div class="profile-container">
-        <img src="ade.jpg" alt="Adejare Akolawole" class="profile-pic" loading="lazy">
-        <div class="circle-border"></div>
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-        <span class="orb orb-6"></span>
-      </div>
-      <h1>Hello, I’m <span>Adejare Akolawole</span></h1>
-      <div class="social-links">
-        <a href="https://facebook.com/adejareakolawole" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@codewithadejare" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://x.com/web3primez" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.instagram.com/adejareakolawole" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p>Full-Stack Developer | Code Architect</p>
-      <a href="mailto:adejare.akolawole@gmail.com" class="cta-btn">Get in Touch</a>
-    </div>
-  </section>
-
-  <section id="about" class="section fade-in">
-    <h2>About Me</h2>
-    <p>I’m Adejare Akolawole, a tech visionary pushing boundaries in web and app development. With 6+ years of experience, I craft cutting-edge solutions in robotics, cloud systems, and immersive digital experiences.</p>
-  </section>
-
-  <section id="skills" class="section fade-in">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">Web Development</div>
-      <div class="skill-card">App Development</div>
-      <div class="skill-card">Robotics</div>
-      <div class="skill-card">Cloud Computing</div>
-      <div class="skill-card">Game Development</div>
-      <div class="skill-card">Technical Writing</div>
-    </div>
-    <div class="skills-animation"></div>
-  </section>
-
-  <section id="experience" class="section fade-in">
-    <h2>Experience</h2>
-    <div class="experience-timeline">
-      <div class="experience-item">
-        <h3>Tech Lead - Hall Connect Group of Companies</h3>
-        <p>2025- Present</p>
-        <p>Driving innovation in robotics and system integration.</p>
-      </div>
-      <div class="experience-item">
-        <h3>CEO - Chavings Systems</h3>
-        <p>2020 - Present</p>
-        <p>Shaping the tech community through content and talks.</p>
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="container">
+      <img src="port1.jpg"Profile Picture">
+      <h1>Hey, I’m Adejare Akolawole.</h1>
+      <p>Creating innovative solutions and captivating designs.<br>Web developer by passion, building the future one line at a time.</p>
+      <div class="buttons">
+        <a href="#contact" class="hire-btn">Hire Me!</a>
+        <span class="status">Available for new project</span>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section fade-in">
-    <h2>Projects</h2>
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all" aria-label="Show all projects">All</button>
-      <button class="filter-btn" data-filter="web" aria-label="Show web projects">Web</button>
-      <button class="filter-btn" data-filter="app" aria-label="Show app projects">App</button>
-    </div>
-    <div class="project-grid">
-      <div class="project-card web" data-title="News Site" data-description="A dynamic business news website built with modern web technologies." data-tech="HTML, CSS, JavaScript, React" data-link="https://ilorinbizchronicle.com" data-image="il pic.jpg">
-        <img src="il pic.jpg" alt="News Site Project" loading="lazy">
-        <h3>News Site</h3>
-        <p>A dynamic business news website</p>
-      </div>
-      <div class="project-card app" data-title="Financial Website" data-description="A fully functional business website for financial services." data-tech="HTML, CSS, JavaScript, Node.js" data-link="http://hallconnectscoop.com" data-image="halllagos pic.jpg">
-        <img src="halllagos pic.jpg" alt="Financial Website Project" loading="lazy">
-        <h3>Financial Website</h3>
-        <p>A fully functional business website</p>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <p class="about-subheading">I like to craft solid and scalable products with great user experiences.</p>
+      <p class="about-details">
+        I’m Adejare Akolawole, a Web & Financial Markets Professional.<br>
+        Self-taught programmer with proven experience in building live projects.<br>
+        Active tech content creator & speaker.
+      </p>
+      <div class="about-images">
+        <img src="ade.jpg"Profile Image 1">
+        <img src="port1.jpg"Profile Image 2">
       </div>
     </div>
   </section>
 
-  <!-- Project Modal -->
-  <div class="project-modal" id="project-modal">
-    <div class="modal-content">
-      <span class="modal-close">×</span>
-      <img src="" alt="Project Image" class="modal-image" id="modal-image" loading="lazy">
-      <h3 id="modal-title"></h3>
-      <p id="modal-description"></p>
-      <p><strong>Technologies:</strong> <span id="modal-tech"></span></p>
-      <a href="#" id="modal-link" target="_blank" class="cta-btn">Visit Live Site</a>
-    </div>
-  </div>
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="halllagos pic.jpg"Project 1">
+          <div>
+            <h3>Hall Connect Cooperative </h3>
+            <p>A vibrant Cooperative Nigerian culture, built with HTML, CSS, and JavaScript.</p>
+            <a href="http://hallconnectscoop.com">View Project</a>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="il pic.jpg"Project 2">
+          <div>
+            <h3>Ilorin Commerce Chronicle </h3>
+            <p>A custom-coded news site for Ilorin with a unique menu design.</p>
+            <a href="https://ilorinbizchronicle.com">View Project</a>
+          </div>
 
-  <section id="technical-proficiency" class="section fade-in">
-    <h2>Technical Proficiency</h2>
-    <div class="tech-proficiency-grid">
-      <div class="tech-card"><i class="fab fa-js"></i> JavaScript <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-python"></i> Python <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-html5"></i> HTML <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-css3-alt"></i> CSS <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-java"></i> Java <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-code"></i> C++ <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-node-js"></i> Node.js <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-php"></i> PHP <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-react"></i> React <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-angular"></i> Angular <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-vuejs"></i> Vue.js <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-database"></i> SQL <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-database"></i> MongoDB <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-code"></i> Ruby <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-code"></i> C# <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-code"></i> Go <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-code"></i> Rust <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-swift"></i> Swift <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-android"></i> Kotlin <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-django"></i> Django <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fas fa-code"></i> Flask <span class="proficiency">Expert</span></div>
-      <div class="tech-card"><i class="fab fa-spring"></i> Spring <span class="proficiency">Expert</span></div>
+          <div class="project-card">
+            <img src="omno.jpg"Project 3">
+            <div>
+              <h3>Omno Fintech Dashboard </h3>
+              <p>A custom-coded Fintech Dashboard</p>
+              <a href="https://omnofintech.netlify.app">View Project</a>
+            </div>
+
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="blog" class="section fade-in">
-    <h2>Blog</h2>
-    <div class="blog-grid" id="blog-grid"></div>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Adejare Akolawole. Built by Me.</p>
+    <div class="container">
+      <p>© 2025 Adejare Akolawole. All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- Local Scripts -->
-  <script defer src="assets/js/three.min.js"></script>
-  <script defer src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
