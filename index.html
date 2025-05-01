@@ -8,7 +8,7 @@
   <meta name="author" content="Adejare Akolawole">
   <title>Adejare Akolawole - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,7 +28,9 @@
   <!-- Hero Section -->
   <section id="home">
     <div class="container">
-      <img src="port1.jpg"Profile Picture">
+      <div class="profile-image-wrapper">
+        <img src="port1.jpg" alt="Profile Picture" onerror="this.onerror=null; this.src='https://via.placeholder.com/140?text=Image+Not+Found';">
+      </div>
       <h1>Hey, I’m Adejare Akolawole.</h1>
       <p>Creating innovative solutions and captivating designs.<br>Web developer by passion, building the future one line at a time.</p>
       <div class="buttons">
@@ -40,6 +42,7 @@
 
   <!-- About Section -->
   <section id="about">
+    <div class="parallax-bg"></div>
     <div class="container">
       <h2>About</h2>
       <p class="about-subheading">I like to craft solid and scalable products with great user experiences.</p>
@@ -48,43 +51,86 @@
         Self-taught programmer with proven experience in building live projects.<br>
         Active tech content creator & speaker.
       </p>
-      <div class="about-images">
-        <img src="ade.jpg"Profile Image 1">
-        <img src="port1.jpg"Profile Image 2">
-      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2018</h3>
+            <p>Started learning web development with HTML and CSS.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2020</h3>
+            <p>Built my first live project, a cooperative platform.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2022</h3>
+            <p>Expanded into fintech, creating dashboards and websites.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2025</h3>
+            <p>Launched CONS, a fintech startup in Nigeria.</p>
+          </div>
+        </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
+    <div class="parallax-bg"></div>
     <div class="container">
       <h2>My Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <img src="halllagos pic.jpg"Project 1">
-          <div>
-            <h3>Hall Connect Cooperative </h3>
+          <div class="project-front">
+            <img src="halllagos pic.jpg" alt="Project 1">
+            <h3>Hall Connect Cooperative</h3>
+          </div>
+          <div class="project-back">
+            <h3>Hall Connect Cooperative</h3>
             <p>A vibrant Cooperative Nigerian culture, built with HTML, CSS, and JavaScript.</p>
             <a href="http://hallconnectscoop.com">View Project</a>
           </div>
         </div>
         
         <div class="project-card">
-          <img src="il pic.jpg"Project 2">
-          <div>
-            <h3>Ilorin Commerce Chronicle </h3>
+          <div class="project-front">
+            <img src="il pic.jpg" alt="Project 2">
+            <h3>Ilorin Commerce Chronicle</h3>
+          </div>
+          <div class="project-back">
+            <h3>Ilorin Commerce Chronicle</h3>
             <p>A custom-coded news site for Ilorin with a unique menu design.</p>
             <a href="https://ilorinbizchronicle.com">View Project</a>
           </div>
+        </div>
 
-          <div class="project-card">
-            <img src="omno.jpg"Project 3">
-            <div>
-              <h3>Omno Fintech Dashboard </h3>
-              <p>A custom-coded Fintech Dashboard</p>
-              <a href="https://omnofintech.netlify.app">View Project</a>
-            </div>
+        <div class="project-card">
+          <div class="project-front">
+            <img src="omno.jpg" alt="Project 3">
+            <h3>Omno Fintech Dashboard</h3>
+          </div>
+          <div class="project-back">
+            <h3>Omno Fintech Dashboard</h3>
+            <p>A custom-coded Fintech Dashboard</p>
+            <a href="https://omnofintech.netlify.app">View Project</a>
+          </div>
+        </div>
 
+        <div class="project-card">
+          <div class="project-front">
+            <img src="cons.jpg" alt="Project 4">
+            <h3>Cons Fintech Website</h3>
+          </div>
+          <div class="project-back">
+            <h3>Cons Fintech Website</h3>
+            <p>A custom-coded Fintech Website</p>
+            <a href="https://consfintech.netlify.app">View Project</a>
+          </div>
         </div>
       </div>
     </div>
@@ -92,6 +138,7 @@
 
   <!-- Contact Section -->
   <section id="contact">
+    <div class="parallax-bg"></div>
     <div class="container">
       <h2>Get in Touch</h2>
       <form id="contactForm">
@@ -106,10 +153,18 @@
   <!-- Footer -->
   <footer>
     <div class="container">
+      <div class="footer-socials">
+        <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
       <p>© 2025 Adejare Akolawole. All rights reserved.</p>
+      <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
