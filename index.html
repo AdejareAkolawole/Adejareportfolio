@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMG284ZMN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5ZMG284ZMN');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZMG284ZMN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5ZMG284ZMN');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio of Adejare Akolawole, a skilled web developer and financial markets professional.">
@@ -35,14 +34,15 @@
 
   <!-- Hero Section -->
   <section id="home">
+    <div class="parallax-bg"></div>
     <div class="container">
       <div class="profile-image-wrapper">
-        <img src="port1.jpg" alt="Profile Picture" onerror="this.onerror=null; this.src='https://via.placeholder.com/140?text=Image+Not+Found';">
+        <img src="port1.jpg" alt="Profile Picture" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/140?text=Image+Not+Found';">
       </div>
       <h1>Hey, I’m Adejare Akolawole.</h1>
-      <p>Creating innovative solutions and captivating designs.<br>Web developer by passion, building the future one line at a time.</p>
+      <p class="tagline">Creating innovative solutions and captivating designs.<br>Web developer by passion, building the future one line at a time.</p>
       <div class="buttons">
-        <a href="#contact" class="hire-btn">Hire Me!</a>
+        <a href="#contact" class="hire-btn cta-button">Hire Me!</a>
         <span class="status">Available for new project</span>
       </div>
     </div>
@@ -69,13 +69,13 @@
         <div class="timeline-item">
           <div class="timeline-content">
             <h3>2020</h3>
-            <p>Still learning and building .</p>
+            <p>Still learning and building.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
             <h3>2024</h3>
-            <p>Build my first site for a client.</p>
+            <p>Built my first site for a client.</p>
           </div>
         </div>
         <div class="timeline-item">
@@ -87,7 +87,47 @@
         <div class="timeline-item">
           <div class="timeline-content">
             <h3>2025</h3>
-            <p>Started working on 2 of my startups simutaenously</p>
+            <p>Started working on 2 of my startups simultaneously</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3>HTML</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%;"></div>
+          </div>
+          <span>90%</span>
+        </div>
+        <div class="skill-item">
+          <h3>CSS</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 85%;"></div>
+          </div>
+          <span>85%</span>
+        </div>
+        <div class="skill-item">
+          <h3>JavaScript</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 80%;"></div>
+          </div>
+          <span>80%</span>
+        </div>
+        <div class="skill-item">
+          <h3>React</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span>70%</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -99,7 +139,7 @@
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-front">
-            <img src="halllagos pic.jpg" alt="Project 1">
+            <img src="halllagos pic.jpg" alt="Project 1" loading="lazy">
             <h3>Hall Connect Cooperative</h3>
           </div>
           <div class="project-back">
@@ -108,10 +148,9 @@
             <a href="http://hallconnectscoop.com">View Project</a>
           </div>
         </div>
-        
         <div class="project-card">
           <div class="project-front">
-            <img src="il pic.jpg" alt="Project 2">
+            <img src="il pic.jpg" alt="Project 2" loading="lazy">
             <h3>Ilorin Commerce Chronicle</h3>
           </div>
           <div class="project-back">
@@ -120,10 +159,9 @@
             <a href="https://ilorinbizchronicle.com">View Project</a>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-front">
-            <img src="omno.jpg" alt="Project 3">
+            <img src="omno.jpg" alt="Project 3" loading="lazy">
             <h3>Omno Fintech Dashboard</h3>
           </div>
           <div class="project-back">
@@ -132,10 +170,9 @@
             <a href="https://omnofintech.netlify.app">View Project</a>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-front">
-            <img src="cons.jpg" alt="Project 4">
+            <img src="cons.jpg" alt="Project 4" loading="lazy">
             <h3>Cons Fintech Website</h3>
           </div>
           <div class="project-back">
@@ -148,16 +185,34 @@
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>Testimonials</h2>
+      <div class="testimonial-carousel">
+        <div class="testimonial-slide">
+          <p>"Adejare's work on Chavings Tasker was exceptional—innovative and user-focused!"</p>
+          <span>- Client A</span>
+        </div>
+        <div class="testimonial-slide">
+          <p>"His Hall Connects project showcased top-notch web development skills."</p>
+          <span>- Collaborator B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact">
     <div class="parallax-bg"></div>
     <div class="container">
       <h2>Get in Touch</h2>
       <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
+        <div id="formStatus"></div>
       </form>
     </div>
   </section>
@@ -175,8 +230,9 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

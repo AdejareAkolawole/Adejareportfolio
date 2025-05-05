@@ -71,17 +71,23 @@ body.light-mode .nav-left a {
 body.light-mode #home h1,
 body.light-mode #about h2,
 body.light-mode #projects h2,
-body.light-mode #contact h2 {
+body.light-mode #contact h2,
+body.light-mode #skills h2,
+body.light-mode #testimonials h2 {
   background: linear-gradient(45deg, #FF8C00, #FFA500) !important;
 }
 body.light-mode .about-subheading,
 body.light-mode .about-details,
 body.light-mode .project-back p,
+body.light-mode .skill-item span,
+body.light-mode .testimonial-slide p,
 body.light-mode footer p {
   color: #666 !important;
 }
 body.light-mode .project-card,
-body.light-mode #contact form {
+body.light-mode #contact form,
+body.light-mode .skill-item,
+body.light-mode .testimonial-slide {
   background: rgba(0, 0, 0, 0.05) !important;
 }
 body.light-mode footer {
@@ -89,6 +95,14 @@ body.light-mode footer {
 }
 body.light-mode .footer-socials a {
   color: #666 !important;
+}
+body.light-mode .hire-btn,
+body.light-mode #contact button,
+body.light-mode .project-back a {
+  background: linear-gradient(45deg, #FFA500, #FF8C00) !important;
+}
+body.light-mode .progress {
+  background: #FFA500 !important;
 }
 /* Custom Cursor with Trail */
 .cursor {
@@ -694,6 +708,114 @@ section::after {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(107, 72, 255, 0.4);
 }
+#formStatus {
+  font-size: 1rem;
+  color: #FFD700;
+  margin-top: 1rem;
+  text-align: center;
+}
+/* Skills Section */
+#skills {
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#skills .container {
+  position: relative;
+  z-index: 1;
+}
+#skills h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #6B48FF, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 10px rgba(107, 72, 255, 0.5);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.skill-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(107, 72, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+.skill-item h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.progress {
+  height: 100%;
+  background: #6B48FF;
+  transition: width 1.5s ease;
+}
+.skill-item span {
+  font-size: 0.9rem;
+  color: #B0B0B0;
+}
+/* Testimonials Section */
+#testimonials {
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#testimonials .container {
+  position: relative;
+  z-index: 1;
+}
+#testimonials h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #6B48FF, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 10px rgba(107, 72, 255, 0.5);
+}
+.testimonial-carousel {
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-slide {
+  display: none;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(107, 72, 255, 0.2);
+}
+.testimonial-slide p {
+  font-size: 1.1rem;
+  color: #B0B0B0;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.testimonial-slide span {
+  font-size: 0.9rem;
+  color: #A0A0A0;
+  font-style: italic;
+}
 /* Footer */
 footer {
   padding: 4rem 0;
@@ -822,7 +944,7 @@ footer {
   #about {
     padding: 5rem 0;
   }
-  #about h2, #projects h2, #contact h2 {
+  #about h2, #projects h2, #contact h2, #skills h2, #testimonials h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
   }
@@ -880,6 +1002,21 @@ footer {
     padding: 0.6rem 1.5rem;
     font-size: 0.9rem;
   }
+  #skills {
+    padding: 5rem 0;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-item {
+    padding: 1.2rem;
+  }
+  #testimonials {
+    padding: 5rem 0;
+  }
+  .testimonial-slide {
+    padding: 1.5rem;
+  }
   #contact {
     padding: 5rem 0;
   }
@@ -899,6 +1036,9 @@ footer {
     padding: 1rem;
     font-size: 1rem;
     border-radius: 8px;
+  }
+  #formStatus {
+    font-size: 0.9rem;
   }
   footer {
     padding: 2rem 0;
@@ -939,6 +1079,17 @@ footer {
   #home p {
     font-size: 0.9rem;
   }
+  .buttons {
+    gap: 0.8rem;
+  }
+  .hire-btn, .status {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+  }
+  .status::before {
+    width: 8px;
+    height: 8px;
+  }
   .about-images img {
     width: 140px;
     height: 200px;
@@ -953,6 +1104,22 @@ footer {
     font-size: 1.3rem;
   }
   .project-back p {
+    font-size: 0.8rem;
+  }
+  .project-back a {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  .skill-item h3 {
+    font-size: 1.3rem;
+  }
+  .skill-item span {
+    font-size: 0.8rem;
+  }
+  .testimonial-slide p {
+    font-size: 1rem;
+  }
+  .testimonial-slide span {
     font-size: 0.8rem;
   }
 }

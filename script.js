@@ -1,14 +1,30 @@
-// Theme Toggle
+// Initialize EmailJS with the public key
+emailjs.init('Gtq_VYBePn5z2g2cg');
+
+// Theme Toggle with Local Storage
 const themeToggle = document.createElement('div');
 themeToggle.classList.add('theme-toggle');
 themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
 document.body.appendChild(themeToggle);
+
+// Check local storage for theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light-mode') {
+  document.body.classList.add('light-mode');
+  themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+}
 
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
   const icon = themeToggle.querySelector('i');
   icon.classList.toggle('fa-moon');
   icon.classList.toggle('fa-sun');
+  // Save theme preference to local storage
+  if (document.body.classList.contains('light-mode')) {
+    localStorage.setItem('theme', 'light-mode');
+  } else {
+    localStorage.setItem('theme', 'dark-mode');
+  }
 });
 
 // Custom Cursor with Trail
@@ -33,7 +49,7 @@ document.addEventListener('mousemove', (e) => {
   }, 800);
 });
 
-document.querySelectorAll('a, button, .project-card').forEach(elem => {
+document.querySelectorAll('a, button, .project-card, .skill-item').forEach(elem => {
   elem.addEventListener('mouseenter', () => cursor.classList.add('grow'));
   elem.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
 });
@@ -67,18 +83,42 @@ document.querySelectorAll('.parallax-bg').forEach(bg => {
   });
 });
 
-// Contact Form Submission
+// Contact Form Submission with EmailJS
 const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  formStatus.textContent = 'Sending...';
+  
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
-  const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
-  submissions.push({ name, email, message });
-  localStorage.setItem('submissions', JSON.stringify(submissions));
-  alert('Message sent! Stored locally.');
-  contactForm.reset();
+
+  // EmailJS submission
+  emailjs.send('service_va12vm7', 'template_sa4fvxr', {
+    from_name: name,
+    from_email: email,
+    message: message
+  })
+  .then((response) => {
+    formStatus.textContent = 'Message sent successfully!';
+    formStatus.style.color = '#FFD700';
+    contactForm.reset();
+
+    // Store submission locally as a fallback
+    const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+    submissions.push({ name, email, message, timestamp: new Date().toISOString() });
+    localStorage.setItem('submissions', JSON.stringify(submissions));
+  }, (error) => {
+    formStatus.textContent = 'Failed to send message. Please try again.';
+    formStatus.style.color = '#FF4500';
+
+    // Store submission locally even if EmailJS fails
+    const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+    submissions.push({ name, email, message, timestamp: new Date().toISOString(), status: 'failed' });
+    localStorage.setItem('submissions', JSON.stringify(submissions));
+  });
 });
 
 // GSAP Animations
@@ -162,6 +202,91 @@ gsap.from(".project-card", {
   stagger: 0.2,
   ease: "power3.out"
 });
+
+// Animate Skills Section
+gsap.from("#skills .container > h2", {
+  scrollTrigger: {
+    trigger: "#skills",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  y: 50,
+  duration: 1,
+  ease: "power3.out"
+});
+
+// Animate Skills Progress Bars
+gsap.from(".skill-item", {
+  scrollTrigger: {
+    trigger: ".skills-grid",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  y: 30,
+  duration: 1,
+  stagger: 0.2,
+  ease: "power3.out",
+  onStart: () => {
+    // Animate progress bars when the skills section is in view
+    document.querySelectorAll('.progress').forEach(progress => {
+      const width = progress.getAttribute('data-progress');
+      gsap.to(progress, {
+        width: `${width}%`,
+        duration: 1.5,
+        ease: "power3.out"
+      });
+    });
+  }
+});
+
+// Animate Testimonials Section
+gsap.from("#testimonials .container > h2", {
+  scrollTrigger: {
+    trigger: "#testimonials",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  y: 50,
+  duration: 1,
+  ease: "power3.out"
+});
+
+// Animate Testimonial Slides
+gsap.from(".testimonial-slide", {
+  scrollTrigger: {
+    trigger: ".testimonial-carousel",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  y: 30,
+  duration: 1,
+  stagger: 0.2,
+  ease: "power3.out"
+});
+
+// Testimonials Carousel
+const slides = document.querySelectorAll('.testimonial-slide');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Initial slide
+showSlide(currentSlide);
+// Auto-scroll every 5 seconds
+setInterval(nextSlide, 5000);
 
 // Animate Contact Section
 gsap.from("#contact .container > *", {
