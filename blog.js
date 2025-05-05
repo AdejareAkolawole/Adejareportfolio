@@ -1,32 +1,3 @@
-// WebGL 3D Background with Three.js
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('webgl-bg').appendChild(renderer.domElement);
-
-const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0xFFD700, wireframe: true });
-const torusKnot = new THREE.Mesh(geometry, material);
-scene.add(torusKnot);
-
-camera.position.z = 30;
-
-function animate() {
-  requestAnimationFrame(animate);
-  torusKnot.rotation.x += 0.01;
-  torusKnot.rotation.y += 0.01;
-  renderer.render(scene, camera);
-}
-animate();
-
-// Handle window resize
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
 // Theme Toggle
 const themeToggle = document.createElement('div');
 themeToggle.classList.add('theme-toggle');
@@ -40,7 +11,7 @@ themeToggle.addEventListener('click', () => {
   icon.classList.toggle('fa-sun');
 });
 
-// Custom Cursor
+// Custom Cursor with Trail
 const cursor = document.createElement('div');
 cursor.classList.add('cursor');
 document.body.appendChild(cursor);
@@ -48,139 +19,66 @@ document.body.appendChild(cursor);
 document.addEventListener('mousemove', (e) => {
   cursor.style.left = e.pageX + 'px';
   cursor.style.top = e.pageY + 'px';
+
+  // Create trail particle
+  const trail = document.createElement('div');
+  trail.classList.add('trail');
+  trail.style.left = e.pageX + 'px';
+  trail.style.top = e.pageY + 'px';
+  document.body.appendChild(trail);
+
+  // Remove trail particle after animation
+  setTimeout(() => {
+    trail.remove();
+  }, 800);
 });
 
-document.querySelectorAll('a, button, .project-card, .filter-btn').forEach(elem => {
+document.querySelectorAll('a, button, .blog-post').forEach(elem => {
   elem.addEventListener('mouseenter', () => cursor.classList.add('grow'));
   elem.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
 });
 
-// Typewriter Effect for Hero Section Heading
-const heroHeading = document.querySelector('#home h1');
-const text = heroHeading.textContent;
-heroHeading.textContent = '';
-let i = 0;
+// Fetch and Render Blog Posts
+const blogGrid = document.getElementById('blogGrid');
 
-function typeWriter() {
-  if (i < text.length) {
-    heroHeading.textContent += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 100);
-  }
-}
-typeWriter();
-
-// Project Filtering
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remove active class from all buttons
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    // Add active class to clicked button
-    button.classList.add('active');
-
-    const filter = button.getAttribute('data-filter');
-    
-    projectCards.forEach(card => {
-      const category = card.getAttribute('data-category');
-      if (filter === 'all' || category === filter) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
+fetch('./posts.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(posts => {
+    if (posts.length > 0) {
+      posts.forEach(post => {
+        const postDiv = document.createElement('div');
+        postDiv.classList.add('blog-post');
+        postDiv.innerHTML = `
+          <img src="${post.image}" alt="${post.title}" class="post-image" onerror="this.src='https://via.placeholder.com/300x200.png?text=Image+Not+Found';">
+          <h3>${post.title}</h3>
+          <p class="post-date">${post.date}</p>
+          <p class="post-category">Category: ${post.category}</p>
+          <p>${post.excerpt}</p>
+          <a href="posts.html?id=${post.id}">Read More</a>
+        `;
+        blogGrid.appendChild(postDiv);
+      });
+    } else {
+      blogGrid.innerHTML = '<p>No blog posts available.</p>';
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching blog posts:', error);
+    blogGrid.innerHTML = '<p>Failed to load blog posts. Check the console for details.</p>';
   });
-});
-
-// Parallax Scrolling for Backgrounds
-document.querySelectorAll('.parallax-bg').forEach(bg => {
-  gsap.to(bg, {
-    scrollTrigger: {
-      trigger: bg.parentElement,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true
-    },
-    y: 200,
-    ease: "none"
-  });
-});
-
-// Contact Form Submission
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
-  submissions.push({ name, email, message });
-  localStorage.setItem('submissions', JSON.stringify(submissions));
-  alert('Message sent! Stored locally.');
-  contactForm.reset();
-});
 
 // GSAP Animations
 gsap.registerPlugin(ScrollTrigger);
 
-// Animate Hero Section (excluding the profile image)
-gsap.from("#home .container > *:not(.profile-image-wrapper)", {
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  stagger: 0.3,
-  ease: "power3.out",
-  delay: 1
-});
-
-// Animate About Section
-gsap.from("#about .container > *:not(.timeline, .about-images)", {
+// Animate Blog Section
+gsap.from("#blog .container > h2", {
   scrollTrigger: {
-    trigger: "#about",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  stagger: 0.3,
-  ease: "power3.out"
-});
-
-// Animate Timeline Items
-gsap.from(".timeline-item", {
-  scrollTrigger: {
-    trigger: ".timeline",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  },
-  opacity: 0,
-  x: (index) => index % 2 === 0 ? -50 : 50,
-  duration: 1,
-  stagger: 0.3,
-  ease: "power3.out"
-});
-
-// Animate About Images with a bounce effect
-gsap.from(".about-images img", {
-  scrollTrigger: {
-    trigger: ".about-images",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  },
-  opacity: 0,
-  scale: 0.8,
-  duration: 1,
-  stagger: 0.2,
-  ease: "elastic.out(1, 0.5)"
-});
-
-// Animate Projects Section
-gsap.from("#projects .container > h2", {
-  scrollTrigger: {
-    trigger: "#projects",
+    trigger: "#blog",
     start: "top 80%",
     toggleActions: "play none none none"
   },
@@ -190,23 +88,9 @@ gsap.from("#projects .container > h2", {
   ease: "power3.out"
 });
 
-// Animate Project Filters
-gsap.from(".project-filters", {
+gsap.from(".blog-post", {
   scrollTrigger: {
-    trigger: ".project-filters",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  },
-  opacity: 0,
-  y: 30,
-  duration: 1,
-  ease: "power3.out"
-});
-
-// Animate Project Cards with a staggered effect
-gsap.from(".project-card", {
-  scrollTrigger: {
-    trigger: ".projects-grid",
+    trigger: ".blog-grid",
     start: "top 80%",
     toggleActions: "play none none none"
   },
@@ -214,20 +98,6 @@ gsap.from(".project-card", {
   y: 50,
   duration: 1,
   stagger: 0.2,
-  ease: "power3.out"
-});
-
-// Animate Contact Section
-gsap.from("#contact .container > *", {
-  scrollTrigger: {
-    trigger: "#contact",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  stagger: 0.3,
   ease: "power3.out"
 });
 

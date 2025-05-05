@@ -1,0 +1,32 @@
+[
+    {
+      "id": 0,
+      "title": "Web Development Trends in 2025",
+      "excerpt": "A look at the latest trends shaping the future of web development, including AI integration and responsive design.",
+      "date": "2025-04-15",
+      "category": "Web Development",
+      "image": "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1746432575~exp=1746436175~hmac=7d87921dd3878824d169c5b52ad8b5b695580d0dc02a6e29b7b436cd65bb7cfa&w=826",
+      "link": "#",
+      "content": "In 2025, web development continues to evolve with groundbreaking trends. AI integration is at the forefront, enabling smarter, more personalized user experiences through machine learning algorithms. Responsive design remains crucial, adapting seamlessly to various devices with advanced CSS techniques and frameworks like Tailwind CSS. Additionally, the rise of Web3 and decentralized applications is pushing developers to explore blockchain technologies. This post dives into practical examples, including how to implement AI-driven features and optimize for mobile-first design."
+    },
+    {
+      "id": 1,
+      "title": "Fintech Innovations in Nigeria",
+      "excerpt": "Exploring how fintech is transforming financial services in Nigeria with a focus on startups like CONS.",
+      "date": "2025-04-20",
+      "category": "Fintech",
+      "image": "https://img.freepik.com/free-photo/man-suit-is-holding-tablet-front-car-with-graph-it_188544-41092.jpg?t=st=1746432528~exp=1746436128~hmac=652ce16360dd44dac93efc77c6847d030f1c6c8290ff6b03ecb3d74f07446920&w=1060",
+      "link": "#",
+      "content": "Nigeria's fintech landscape is booming, driven by a young, tech-savvy population and increasing mobile penetration. Startups like CONS are revolutionizing payment systems with secure, blockchain-based solutions, while mobile money platforms like OPay and Paga expand financial inclusion. This post examines key innovations, including digital wallets, peer-to-peer lending, and regulatory challenges, with insights into how these changes benefit local economies and consumers."
+    },
+    {
+      "id": 2,
+      "title": "Mastering CSS Animations",
+      "excerpt": "Tips and tricks to create stunning animations using CSS, inspired by my portfolio projects.",
+      "date": "2025-05-01",
+      "category": "CSS",
+      "image": "https://img.freepik.com/free-photo/computer-program-coding-screen_53876-138060.jpg?t=st=1746431526~exp=1746435126~hmac=ecd4f7b4f278bcb62430669c06ad9df90fe4106c21e8a67a8c68fde0592a4d66&w=826",
+      "link": "#",
+      "content": "CSS animations bring websites to life, and mastering them can elevate your portfolio projects. This post covers key techniques, such as using `@keyframes` for custom animations, leveraging `transform` for smooth transitions, and optimizing performance with GPU acceleration. Inspired by my cosmic-themed portfolio, I’ll share code snippets like `animation: fadeIn 1s ease-out` and discuss best practices to avoid jank, ensuring a polished user experience."
+    }
+  ]
