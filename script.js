@@ -269,13 +269,28 @@ gsap.from(".testimonial-slide", {
 });
 
 // Testimonials Carousel
+const carousel = document.querySelector('.testimonial-carousel');
 const slides = document.querySelectorAll('.testimonial-slide');
 let currentSlide = 0;
 
+// Create navigation buttons
+const prevButton = document.createElement('button');
+prevButton.textContent = '<';
+prevButton.className = 'carousel-btn prev';
+const nextButton = document.createElement('button');
+nextButton.textContent = '>';
+nextButton.className = 'carousel-btn next';
+carousel.parentElement.appendChild(prevButton);
+carousel.parentElement.appendChild(nextButton);
+
 function showSlide(index) {
+  if (!slides.length) return; // Exit if no slides
   slides.forEach((slide, i) => {
     slide.style.display = i === index ? 'block' : 'none';
   });
+  // Update button states
+  prevButton.disabled = index === 0;
+  nextButton.disabled = index === slides.length - 1;
 }
 
 function nextSlide() {
@@ -283,10 +298,25 @@ function nextSlide() {
   showSlide(currentSlide);
 }
 
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Event listeners for navigation
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+
 // Initial slide
 showSlide(currentSlide);
 // Auto-scroll every 5 seconds
-setInterval(nextSlide, 5000);
+const autoScroll = setInterval(nextSlide, 5000);
+
+// Pause auto-scroll on hover
+carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+carousel.addEventListener('mouseleave', () => {
+  autoScroll = setInterval(nextSlide, 5000);
+});
 
 // Animate Contact Section
 gsap.from("#contact .container > *", {

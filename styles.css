@@ -797,6 +797,8 @@ section::after {
 .testimonial-carousel {
   position: relative;
   overflow: hidden;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .testimonial-slide {
   display: none;
@@ -815,6 +817,38 @@ section::after {
   font-size: 0.9rem;
   color: #A0A0A0;
   font-style: italic;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 215, 0, 0.2);
+  border: none;
+  color: #FFD700;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.carousel-btn:hover {
+  background: rgba(255, 215, 0, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-btn.prev {
+  left: 10px;
+}
+.carousel-btn.next {
+  right: 10px;
+}
+.carousel-btn:disabled {
+  background: rgba(255, 215, 0, 0.1);
+  cursor: not-allowed;
+  color: #666;
+}
+.carousel-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 /* Footer */
 footer {
@@ -1017,6 +1051,10 @@ footer {
   .testimonial-slide {
     padding: 1.5rem;
   }
+  .carousel-btn {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
   #contact {
     padding: 5rem 0;
   }
@@ -1121,5 +1159,9 @@ footer {
   }
   .testimonial-slide span {
     font-size: 0.8rem;
+  }
+  .carousel-btn {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
   }
 }
