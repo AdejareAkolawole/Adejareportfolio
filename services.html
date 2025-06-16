@@ -3,57 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio - Web Developer & Social Media Manager</title>
+    <title>Services - YourName</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="loader">
-        <div class="loader-inner"></div>
-    </div>
-    <div class="background-layer">
-        <div class="gradient-bg"></div>
-        <div class="particle-bg"></div>
-    </div>
     <header>
         <nav class="desktop-nav">
             <div class="logo">YourName</div>
             <ul>
-                <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
-                <li><a href="#services"><i class="fa fa-briefcase"></i> Services</a></li>
-                <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="home" class="hero" data-aos="zoom-in">
-            <div class="hero-content">
-                <h1>Hi, I'm YourName</h1>
-                <p>Crafting Futuristic Websites & Social Media Strategies</p>
-                <a href="#services" class="cta-button">Discover Services</a>
-            </div>
-        </section>
-        <section id="about" class="about" data-aos="fade-up-right">
-            <h2>About Me</h2>
-            <div class="profile-card" data-aos="zoom-in" data-aos-delay="200">
-                <img src="your-photo.jpg" alt="YourName Profile" class="profile-img">
-            </div>
-            <p>I'm a passionate Web Developer and Social Media Manager with over 5 years of experience, delivering cutting-edge websites and impactful social media campaigns that drive results.</p>
-            <p>Current as of: <span id="currentDate"></span></p>
-        </section>
-        <section id="skills" class="skills" data-aos="fade-up-left">
-            <h2>My Skills</h2>
-            <canvas id="skillsChart"></canvas>
-        </section>
-        <section id="services" class="services" data-aos="fade-up">
-            <h2>Our Services</h2>
+        <section class="services" data-aos="fade-up">
+            <h1>Our Services</h1>
             <div class="service-grid">
-                <div class="service-card" data-aos="zoom-in-up" data-aos-delay="100">
+                <div class="service-card" data-aos="zoom-in">
                     <h3>Basic Website</h3>
-                    <p class="price">$500</p>
+                    <p>$500</p>
                     <ul>
                         <li>5 Pages</li>
                         <li>Responsive Design</li>
@@ -66,9 +39,9 @@
                         <span>Shipped</span>
                     </div>
                 </div>
-                <div class="service-card" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="service-card" data-aos="zoom-in">
                     <h3>Premium Website</h3>
-                    <p class="price">$1000</p>
+                    <p>$1000</p>
                     <ul>
                         <li>10 Pages</li>
                         <li>SEO Optimization</li>
@@ -81,9 +54,9 @@
                         <span>Shipped</span>
                     </div>
                 </div>
-                <div class="service-card" data-aos="zoom-in-up" data-aos-delay="300">
+                <div class="service-card" data-aos="zoom-in">
                     <h3>Social Media Basic</h3>
-                    <p class="price">$300/month</p>
+                    <p>$300/month</p>
                     <ul>
                         <li>2 Platforms</li>
                         <li>10 Posts/Month</li>
@@ -96,9 +69,9 @@
                         <span>Shipped</span>
                     </div>
                 </div>
-                <div class="service-card" data-aos="zoom-in-up" data-aos-delay="400">
+                <div class="service-card" data-aos="zoom-in">
                     <h3>Social Media Pro</h3>
-                    <p class="price">$600/month</p>
+                    <p>$600/month</p>
                     <ul>
                         <li>4 Platforms</li>
                         <li>20 Posts/Month</li>
@@ -113,25 +86,15 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class="contact" data-aos="fade-up">
-            <h2>Contact Me</h2>
-            <p>Ready to elevate your online presence? Let's talk!</p>
-            <div class="contact-info">
-                <p><i class="fa fa-envelope"></i> Email: your.email@example.com</p>
-                <p><i class="fa fa-phone"></i> Phone: +123-456-7890</p>
-            </div>
-        </section>
     </main>
     <nav class="mobile-nav">
         <ul>
-            <li><a href="#home"><i class="fa fa-home"></i></a></li>
-            <li><a href="#about"><i class="fa fa-user"></i></a></li>
-            <li><a href="#services"><i class="fa fa-briefcase"></i></a></li>
-            <li><a href="#contact"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i></a></li>
+            <li><a href="services.html"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i></a></li>
         </ul>
     </nav>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.3/dist/floating-ui.dom.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
